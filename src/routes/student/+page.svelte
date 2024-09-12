@@ -112,27 +112,24 @@
     </div>
 
     <!-- Progress & Grade -->
-<!-- Progress & Grade -->
-<div class="p-5 dark:bg-gray-900 dark:text-white">
-    <div>
-        <h3 class="text-lg font-semibold text-left">Progress & Grade</h3>
-        <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            Here is your progress in each subject and your grades
-        </p>
-    </div>
-    {#each progress_val as item (item.id)}
-        <div class="flex items-center justify-between mt-4 dark:bg-gray-800 p-2 rounded" id={`progress-${item.id}`}>
-            <div class="flex items-center">
-                <span class="text-2xl mx-5 font-semibold">{item.subject}</span>
-                <span class="ml-2 text-xl font-normal text-gray-500 dark:text-gray-400">Grade : {item.grade}</span>
-            </div>
-            <!-- Assign unique id for each progress bar -->
-            <Progressbar progress={item.progress} class="w-1/2 dark:bg-gray-700" id={`progressbar-${item.id}`} labelInside />
+    <div class="p-5 dark:bg-gray-900 dark:text-white">
+        <div>
+            <h3 class="text-lg font-semibold text-left">Progress & Grade</h3>
+            <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                Here is your progress in each subject and your grades
+            </p>
         </div>
-    {/each}
-</div>
-
-
+        {#each progress_val as item (item.id)}
+            <div class="flex items-center justify-between mt-4 dark:bg-gray-800 p-2 rounded" id={`progress-${item.id}`}>
+                <div class="flex items-center">
+                    <span class="text-2xl mx-5 font-semibold">{item.subject}</span>
+                    <span class="ml-2 text-xl font-normal text-gray-500 dark:text-gray-400">Grade : {item.grade}</span>
+                </div>
+                <!-- Assign unique id for each progress bar -->
+                <Progressbar progress={item.progress} class="w-1/2 dark:bg-gray-700 h-4" id={`progressbar-${item.id}`} labelInside />
+            </div>
+        {/each}
+    </div>
 </div>
 
 <style>
