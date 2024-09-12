@@ -86,7 +86,7 @@
     <!-- Class schedules -->
     <div class="p-5 dark:bg-gray-900">
         <Table hoverable={true}>
-            <caption class="p-5 text-lg font-semibold text-left text-gray-900 dark:text-white">
+            <caption class="py-5 text-lg font-semibold text-left text-gray-900 dark:text-white">
                 Class schedules
                 <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Here is the list of the classes scheduled today and their timings</p>
             </caption>
