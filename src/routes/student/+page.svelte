@@ -3,6 +3,9 @@
     import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from 'flowbite-svelte';
     import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from 'flowbite-svelte';
     import { Progressbar } from 'flowbite-svelte';
+    import { Card, Button, Toggle } from 'flowbite-svelte';
+    import { ArrowRightOutline } from 'flowbite-svelte-icons';
+    let vCard = false;
 
     // State to manage dark mode
     const isDarkMode = writable(true);
@@ -19,6 +22,15 @@
         { id: 2, subject: 'Sub 2', progress: 70, grade: 'B' },
         { id: 3, subject: 'Sub 3', progress: 90, grade: 'A' },
         { id: 4, subject: 'Sub 4', progress: 60, grade: 'C' }
+    ];
+
+    let courses = [
+        {title:"Course 1", desc:"This is the dec for course 1"},
+        {title:"Course 2", desc:"This is the dec for course 2"},
+        {title:"Course 3", desc:"This is the dec for course 3"},
+        {title:"Course 4", desc:"This is the dec for course 4"},
+        {title:"Course 5", desc:"This is the dec for course 5"},
+        {title:"Course 6", desc:"This is the dec for course 6"},
     ];
 
     const sortKey = writable('id'); // default sort key
@@ -58,7 +70,7 @@
 </script>
 
 <!-- Bind dark mode class -->
-<div class:dark={$isDarkMode}>
+<div class:dark={$isDarkMode} class="selection:bg-orange-500 selection:text-white">
     <!-- Navbar with dropdown menu and avatar -->
     <Navbar>
         <NavBrand href="/">
@@ -122,13 +134,33 @@
         {#each progress_val as item (item.id)}
             <div class="flex items-center justify-between mt-4 dark:bg-gray-800 p-2 rounded" id={`progress-${item.id}`}>
                 <div class="flex items-center">
-                    <span class="text-2xl mx-5 font-semibold">{item.subject}</span>
-                    <span class="ml-2 text-xl font-normal text-gray-500 dark:text-gray-400">Grade : {item.grade}</span>
+                    <span class="sm:text-2xl sm:mx-5 mx-2 font-semibold text-lg">{item.subject}</span>
+                    <span class="ml-2 sm:text-xl text-sm font-normal text-gray-500 dark:text-gray-400">Grade : {item.grade}</span>
                 </div>
                 <!-- Assign unique id for each progress bar -->
                 <Progressbar progress={item.progress} class="w-1/2 dark:bg-gray-700 h-4" id={`progressbar-${item.id}`} labelInside />
             </div>
         {/each}
+    </div>
+
+    <div class="p-5 dark:bg-gray-900 dark:text-white">
+        <div>
+            <h3 class="text-lg font-semibold text-left">Courses</h3>
+            <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                Here is your available courses
+            </p>
+        </div>
+        <div  class="flex flex-wrap m-5">
+        {#each courses as course (course.title)}
+            <Card img="/images/image-1.webp" reverse={vCard} class="m-2">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{course.title}</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">{course.desc}</p>
+                <Button>
+                Start course <ArrowRightOutline class="w-6 h-6 ms-2 text-white" />
+                </Button>
+            </Card>
+        {/each}
+        </div>
     </div>
 </div>
 
