@@ -56,7 +56,7 @@
 </script>
 
 <!-- Bind the dark mode class dynamically -->
-<div class:dark={isDarkMode} class="min-h-screen flex bg-white">
+<div class:dark={isDarkMode} class="min-h-screen flex bg-white selection:bg-slate-600 selection:text-white">
     <!-- Sidebar and Links -->
     <div class="hidden lg:block">
         <Sidebar>
