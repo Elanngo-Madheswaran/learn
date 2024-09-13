@@ -15,8 +15,8 @@
 <!-- Bind the dark mode class dynamically -->
 <div class:dark={isDarkMode} class="min-h-screen flex">
     <!-- Sidebar and Links -->
-    <Sidebar class="h-screen">
-        <SidebarWrapper>
+    <Sidebar >
+        <SidebarWrapper class="h-screen">
             <SidebarGroup>
                 <SidebarBrand {site} />
                 <SidebarItem label="Student Page" href="./student">
@@ -29,7 +29,7 @@
                         <GridSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                     </svelte:fragment>
                 </SidebarItem>
-                <SidebarItem label="Admin Page" {spanClass}>
+                <SidebarItem label="Admin Page" {spanClass} href="./admin">
                     <svelte:fragment slot="icon">
                         <MailBoxSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                     </svelte:fragment>
