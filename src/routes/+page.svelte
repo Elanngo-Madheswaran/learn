@@ -60,6 +60,7 @@
     <!-- Content area (can be filled with other content) -->
     <div class="flex-1 p-5 text-white sm:block hidden">
         <h1 class="text-6xl text-center">Welcome to Our app</h1>
+        <h1 class="text-6xl text-center">Here you can see the different sections and their dashboards</h1>
     </div>
 </div>
 
